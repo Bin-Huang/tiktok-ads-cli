@@ -1,6 +1,6 @@
 # tiktok-ads-cli
 
-A TikTok Ads CLI designed for AI agents. Wraps the official TikTok Marketing API with simple, agent-friendly commands.
+Give AI agents direct access to TikTok Ads data. One command to query campaigns, ad groups, and pull performance reports -- no SDK, no docs to read, no tokens wasted on boilerplate.
 
 **Works with:** OpenClaw, Claude Code, Cursor, Codex, and any agent that can run shell commands.
 
