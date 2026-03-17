@@ -26,12 +26,12 @@ Follow the [TikTok OAuth flow](https://business-api.tiktok.com/portal/docs?id=17
 mkdir -p ~/.config/tiktok-ads-cli
 cat > ~/.config/tiktok-ads-cli/credentials.json << EOF
 {
-  "access_token": "YOUR_ACCESS_TOKEN",
-  "app_id": "YOUR_APP_ID",
-  "secret": "YOUR_SECRET"
+  "access_token": "YOUR_ACCESS_TOKEN"
 }
 EOF
 ```
+
+The `app_id` and `secret` fields are optional in the credentials file. Only `access_token` is required.
 
 Or set the environment variable:
 
