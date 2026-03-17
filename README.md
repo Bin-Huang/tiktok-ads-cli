@@ -1,6 +1,6 @@
 # tiktok-ads-cli
 
-Give AI agents direct access to TikTok Ads data. One command to query campaigns, ad groups, and pull performance reports -- no SDK, no docs to read, no tokens wasted on boilerplate.
+TikTok Ads CLI for AI agents (and humans). Pull synchronous and async performance reports, analyze audience demographics, manage custom and lookalike audiences, and more.
 
 **Works with:** OpenClaw, Claude Code, Cursor, Codex, and any agent that can run shell commands.
 
@@ -9,6 +9,25 @@ Give AI agents direct access to TikTok Ads data. One command to query campaigns,
 ```bash
 npm install -g tiktok-ads-cli
 ```
+
+Or run directly with npx:
+
+```bash
+npx tiktok-ads-cli --help
+```
+
+## How it works
+
+Built on the official [TikTok Marketing API](https://business-api.tiktok.com/portal/docs). Handles OAuth2 access token authentication. Every command outputs structured JSON to stdout, ready for agents to parse without extra processing.
+
+Core endpoints covered:
+
+- **[Advertiser](https://business-api.tiktok.com/portal/docs)** -- advertiser account info
+- **[Campaigns](https://business-api.tiktok.com/portal/docs)** -- list campaigns
+- **[Ad Groups](https://business-api.tiktok.com/portal/docs)** -- list ad groups
+- **[Ads](https://business-api.tiktok.com/portal/docs)** -- list ads and creatives
+- **[Reports](https://business-api.tiktok.com/portal/docs)** -- synchronous and async performance reports, audience reports
+- **[Assets](https://business-api.tiktok.com/portal/docs)** -- images, videos, custom audiences, lookalike audiences, pixels
 
 ## Setup
 
