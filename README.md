@@ -84,6 +84,147 @@ tiktok-ads-cli report 7000000000000 \
   --end-date 2026-03-15
 ```
 
+Options:
+- `--report-type <type>` -- report type: BASIC, AUDIENCE, PLAYABLE_MATERIAL, CATALOG (required)
+- `--data-level <level>` -- data level: AUCTION_ADVERTISER, AUCTION_CAMPAIGN, AUCTION_ADGROUP, AUCTION_AD (required)
+- `--dimensions <dims>` -- dimensions, comma-separated (required)
+- `--metrics <metrics>` -- metrics, comma-separated (required)
+- `--start-date <date>` -- start date, YYYY-MM-DD (required)
+- `--end-date <date>` -- end date, YYYY-MM-DD (required)
+- `--filters <json>` -- filtering conditions as JSON
+- `--page <n>` -- page number (default 1)
+- `--page-size <n>` -- page size (default 100, max 1000)
+
+### List images
+
+List image assets for an advertiser.
+
+```bash
+tiktok-ads-cli images 7000000000000
+tiktok-ads-cli images 7000000000000 --page 2 --page-size 50
+```
+
+Options:
+- `--page <n>` -- page number (default 1)
+- `--page-size <n>` -- page size (default 100, max 1000)
+
+### List videos
+
+List video assets for an advertiser.
+
+```bash
+tiktok-ads-cli videos 7000000000000
+tiktok-ads-cli videos 7000000000000 --page 2 --page-size 50
+```
+
+Options:
+- `--page <n>` -- page number (default 1)
+- `--page-size <n>` -- page size (default 100, max 1000)
+
+### List ad creatives
+
+List creative details for ads.
+
+```bash
+tiktok-ads-cli ad-creatives 7000000000000
+tiktok-ads-cli ad-creatives 7000000000000 --ad-ids 123,456
+```
+
+Options:
+- `--ad-ids <ids>` -- filter by ad IDs (comma-separated)
+- `--page <n>` -- page number (default 1)
+- `--page-size <n>` -- page size (default 100)
+
+### List custom audiences
+
+List custom audiences for an advertiser.
+
+```bash
+tiktok-ads-cli custom-audiences 7000000000000
+```
+
+Options:
+- `--page <n>` -- page number (default 1)
+- `--page-size <n>` -- page size (default 100)
+
+### List lookalike audiences
+
+List lookalike audiences for an advertiser (lookalike audiences are a type of custom audience).
+
+```bash
+tiktok-ads-cli lookalike-audiences 7000000000000
+```
+
+Options:
+- `--page <n>` -- page number (default 1)
+- `--page-size <n>` -- page size (default 100)
+
+### List pixels
+
+List pixels for an advertiser.
+
+```bash
+tiktok-ads-cli pixels 7000000000000
+```
+
+Options:
+- `--page <n>` -- page number (default 1)
+- `--page-size <n>` -- page size (default 100)
+
+### Get a pixel
+
+Get a specific pixel by ID.
+
+```bash
+tiktok-ads-cli pixel 7000000000000 PIXEL_CODE_123
+```
+
+### Create async report
+
+Create an async report task.
+
+```bash
+tiktok-ads-cli async-report 7000000000000 \
+  --report-type BASIC \
+  --dimensions ad_id,stat_time_day \
+  --start-date 2026-03-01 \
+  --end-date 2026-03-15 \
+  --metrics spend,impressions,clicks
+```
+
+Options:
+- `--report-type <type>` -- report type: BASIC, AUDIENCE, PLAYABLE (required)
+- `--dimensions <dims>` -- dimensions, comma-separated (required)
+- `--start-date <date>` -- start date, YYYY-MM-DD (required)
+- `--end-date <date>` -- end date, YYYY-MM-DD (required)
+- `--metrics <metrics>` -- metrics, comma-separated
+
+### Check async report status
+
+Check the status of an async report task.
+
+```bash
+tiktok-ads-cli report-status 7000000000000 task_abc123
+```
+
+### Get audience report
+
+Get audience analysis report.
+
+```bash
+tiktok-ads-cli audience-report 7000000000000 \
+  --start-date 2026-03-01 \
+  --end-date 2026-03-15 \
+  --dimensions gender,age \
+  --campaign-ids 123,456
+```
+
+Options:
+- `--start-date <date>` -- start date, YYYY-MM-DD (required)
+- `--end-date <date>` -- end date, YYYY-MM-DD (required)
+- `--dimensions <dims>` -- dimensions: gender, age, country_code, language, platform, etc.
+- `--campaign-ids <ids>` -- filter by campaign IDs (comma-separated)
+
 ## Credentials
 
 Credentials are resolved in this order:
