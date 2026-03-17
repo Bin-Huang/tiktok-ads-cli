@@ -1,5 +1,9 @@
 #!/usr/bin/env node
+import { createRequire } from "node:module";
 import { Command } from "commander";
+
+const require = createRequire(import.meta.url);
+const { version } = require("../package.json") as { version: string };
 import { registerAdvertiserCommands } from "./commands/advertiser.js";
 import { registerCampaignCommands } from "./commands/campaigns.js";
 import { registerAdgroupCommands } from "./commands/adgroups.js";
@@ -14,7 +18,7 @@ const program = new Command();
 program
   .name("tiktok-ads-cli")
   .description("TikTok Ads CLI for AI agents")
-  .version("0.1.0")
+  .version(version)
   .option("--format <format>", "Output format", "json")
   .option("--credentials <path>", "Path to credentials JSON file")
   .addHelpText(
