@@ -264,8 +264,11 @@ Use `--format compact` for single-line JSON (useful for piping).
 
 ## Related
 
-- [google-analytics-cli](https://github.com/Bin-Huang/google-analytics-cli) - Google Analytics CLI for AI agents
-- [google-search-console-cli](https://github.com/Bin-Huang/google-search-console-cli) - Google Search Console CLI for AI agents
+- [snapchat-ads-cli](https://github.com/Bin-Huang/snapchat-ads-cli) -- Snapchat Ads
+- [meta-ads-open-cli](https://github.com/Bin-Huang/meta-ads-open-cli) -- Meta Ads
+- [pinterest-ads-cli](https://github.com/Bin-Huang/pinterest-ads-cli) -- Pinterest Ads
+- [reddit-ads-cli](https://github.com/Bin-Huang/reddit-ads-cli) -- Reddit Ads
+- [x-ads-cli](https://github.com/Bin-Huang/x-ads-cli) -- X Ads
 
 ## License
 
