@@ -5,6 +5,9 @@ import { registerCampaignCommands } from "./commands/campaigns.js";
 import { registerAdgroupCommands } from "./commands/adgroups.js";
 import { registerAdCommands } from "./commands/ads.js";
 import { registerReportCommands } from "./commands/report.js";
+import { registerCreativeCommands } from "./commands/creatives.js";
+import { registerAudienceCommands } from "./commands/audiences.js";
+import { registerReportingCommands } from "./commands/reporting.js";
 
 const program = new Command();
 
@@ -20,10 +23,16 @@ program
   );
 
 program.configureOutput({
-  writeErr: (str) => {
-    // Suppress commander's default error output; we handle errors ourselves
+  writeErr: (str: string) => {
+    const msg = str.replace(/^error: /i, "").trim();
+    if (msg) process.stderr.write(JSON.stringify({ error: msg }) + "\n");
+  },
+  writeOut: (str: string) => {
+    process.stdout.write(str);
   },
 });
+
+program.showHelpAfterError(false);
 
 // Validate format
 program.hook("preAction", (_thisCommand) => {
@@ -41,6 +50,16 @@ registerCampaignCommands(program);
 registerAdgroupCommands(program);
 registerAdCommands(program);
 registerReportCommands(program);
+registerCreativeCommands(program);
+registerAudienceCommands(program);
+registerReportingCommands(program);
+
+program.on("command:*", (operands) => {
+  process.stderr.write(
+    JSON.stringify({ error: `Unknown command: ${operands[0]}. Run --help for available commands.` }) + "\n"
+  );
+  process.exit(1);
+});
 
 // Show help when no command is given
 if (process.argv.length <= 2) {
