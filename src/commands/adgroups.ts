@@ -24,7 +24,7 @@ export function registerAdgroupCommands(program: Command): void {
           filtering.campaign_ids = opts.campaignIds.split(",").map((s: string) => s.trim());
         }
         if (opts.status) {
-          filtering.status = opts.status;
+          filtering.primary_status = opts.status;
         }
         if (Object.keys(filtering).length > 0) {
           params.filtering = filtering;

@@ -19,7 +19,7 @@ export function registerCampaignCommands(program: Command): void {
           page_size: Number(opts.pageSize),
         };
         if (opts.status) {
-          params.filtering = { status: opts.status };
+          params.filtering = { primary_status: opts.status };
         }
         const data = await callApi("/campaign/get/", {
           accessToken: creds.access_token,

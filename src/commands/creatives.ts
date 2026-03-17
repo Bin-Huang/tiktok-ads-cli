@@ -12,7 +12,7 @@ export function registerCreativeCommands(program: Command): void {
     .action(async (advertiserId: string, opts) => {
       try {
         const creds = loadCredentials(program.opts().credentials);
-        const data = await callApi("/file/image/ad/get/", {
+        const data = await callApi("/file/image/ad/info/", {
           accessToken: creds.access_token,
           params: {
             advertiser_id: advertiserId,
@@ -34,7 +34,7 @@ export function registerCreativeCommands(program: Command): void {
     .action(async (advertiserId: string, opts) => {
       try {
         const creds = loadCredentials(program.opts().credentials);
-        const data = await callApi("/file/video/ad/get/", {
+        const data = await callApi("/file/video/ad/info/", {
           accessToken: creds.access_token,
           params: {
             advertiser_id: advertiserId,

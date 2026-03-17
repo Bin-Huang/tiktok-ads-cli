@@ -28,7 +28,7 @@ export function registerAdCommands(program: Command): void {
           filtering.adgroup_ids = opts.adgroupIds.split(",").map((s: string) => s.trim());
         }
         if (opts.status) {
-          filtering.status = opts.status;
+          filtering.primary_status = opts.status;
         }
         if (Object.keys(filtering).length > 0) {
           params.filtering = filtering;

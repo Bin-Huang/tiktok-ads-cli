@@ -12,7 +12,7 @@ export function registerAudienceCommands(program: Command): void {
     .action(async (advertiserId: string, opts) => {
       try {
         const creds = loadCredentials(program.opts().credentials);
-        const data = await callApi("/dmp/custom_audience/get/", {
+        const data = await callApi("/dmp/custom_audience/list/", {
           accessToken: creds.access_token,
           params: {
             advertiser_id: advertiserId,
@@ -28,13 +28,13 @@ export function registerAudienceCommands(program: Command): void {
 
   program
     .command("lookalike-audiences <advertiser-id>")
-    .description("List lookalike audiences for an advertiser")
+    .description("List lookalike audiences for an advertiser (uses custom_audience/list - lookalike audiences are a type of custom audience)")
     .option("--page <n>", "Page number (default 1)", "1")
     .option("--page-size <n>", "Page size (default 100)", "100")
     .action(async (advertiserId: string, opts) => {
       try {
         const creds = loadCredentials(program.opts().credentials);
-        const data = await callApi("/dmp/lookalike/get/", {
+        const data = await callApi("/dmp/custom_audience/list/", {
           accessToken: creds.access_token,
           params: {
             advertiser_id: advertiserId,
@@ -76,7 +76,7 @@ export function registerAudienceCommands(program: Command): void {
     .action(async (advertiserId: string, pixelId: string) => {
       try {
         const creds = loadCredentials(program.opts().credentials);
-        const data = await callApi("/pixel/detail/", {
+        const data = await callApi("/pixel/list/", {
           accessToken: creds.access_token,
           params: {
             advertiser_id: advertiserId,

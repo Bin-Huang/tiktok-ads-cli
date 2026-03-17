@@ -73,7 +73,8 @@ export function registerReportingCommands(program: Command): void {
         if (opts.campaignIds) {
           params.filters = [{ field_name: "campaign_ids", filter_type: "IN", filter_value: opts.campaignIds }];
         }
-        const data = await callApi("/report/audience/get/", {
+        params.report_type = "AUDIENCE";
+        const data = await callApi("/report/integrated/get/", {
           accessToken: creds.access_token,
           params,
         });
