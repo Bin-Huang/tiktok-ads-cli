@@ -10,11 +10,7 @@ TikTok Ads CLI for AI agents (and humans). Pull synchronous and async performanc
 npm install -g tiktok-ads-cli
 ```
 
-Or run directly with npx:
-
-```bash
-npx tiktok-ads-cli --help
-```
+Or run directly: `npx tiktok-ads-cli --help`
 
 ## How it works
 
