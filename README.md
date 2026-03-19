@@ -188,7 +188,7 @@ Options:
 
 ### Get a pixel
 
-Get a specific pixel by ID.
+Get a specific pixel by code.
 
 ```bash
 tiktok-ads-cli pixel 7000000000000 PIXEL_CODE_123
