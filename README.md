@@ -8,7 +8,7 @@ TikTok Ads CLI for AI agents (and humans). Pull synchronous and async performanc
 
 Tell your AI agent (e.g. OpenClaw):
 
-> Install the CLI and skills from https://github.com/Bin-Huang/tiktok-ads-cli
+> Install this CLI and skills from https://github.com/Bin-Huang/tiktok-ads-cli
 
 Or install manually:
 
