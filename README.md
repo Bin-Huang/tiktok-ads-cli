@@ -58,36 +58,48 @@ export TIKTOK_ADS_ACCESS_TOKEN=your_access_token
 
 Your Advertiser ID is shown in the TikTok Ads Manager URL or can be obtained from the API after authorization.
 
-## Commands
+## Usage
 
-### Get advertiser info
+All commands output pretty-printed JSON by default. Use `--format compact` for single-line JSON.
+
+### advertiser
+
+Get advertiser account info.
 
 ```bash
 tiktok-ads-cli advertiser 7000000000000
 ```
 
-### List campaigns
+### campaigns
+
+List campaigns for an advertiser.
 
 ```bash
 tiktok-ads-cli campaigns 7000000000000
 tiktok-ads-cli campaigns 7000000000000 --status CAMPAIGN_STATUS_ENABLE
 ```
 
-### List ad groups
+### adgroups
+
+List ad groups for an advertiser.
 
 ```bash
 tiktok-ads-cli adgroups 7000000000000
 tiktok-ads-cli adgroups 7000000000000 --campaign-ids 123,456
 ```
 
-### List ads
+### ads
+
+List ads for an advertiser.
 
 ```bash
 tiktok-ads-cli ads 7000000000000
 tiktok-ads-cli ads 7000000000000 --campaign-ids 123 --status AD_STATUS_DELIVERY_OK
 ```
 
-### Get performance report
+### report
+
+Get a synchronous performance report.
 
 ```bash
 tiktok-ads-cli report 7000000000000 \
@@ -110,7 +122,7 @@ Options:
 - `--page <n>` -- page number (default 1)
 - `--page-size <n>` -- page size (default 100, max 1000)
 
-### List images
+### images
 
 List image assets for an advertiser.
 
@@ -123,7 +135,7 @@ Options:
 - `--page <n>` -- page number (default 1)
 - `--page-size <n>` -- page size (default 100, max 1000)
 
-### List videos
+### videos
 
 List video assets for an advertiser.
 
@@ -136,7 +148,7 @@ Options:
 - `--page <n>` -- page number (default 1)
 - `--page-size <n>` -- page size (default 100, max 1000)
 
-### List ad creatives
+### ad-creatives
 
 List creative details for ads.
 
@@ -150,7 +162,7 @@ Options:
 - `--page <n>` -- page number (default 1)
 - `--page-size <n>` -- page size (default 100)
 
-### List custom audiences
+### custom-audiences
 
 List custom audiences for an advertiser.
 
@@ -162,9 +174,9 @@ Options:
 - `--page <n>` -- page number (default 1)
 - `--page-size <n>` -- page size (default 100)
 
-### List lookalike audiences
+### lookalike-audiences
 
-List lookalike audiences for an advertiser (lookalike audiences are a type of custom audience).
+List lookalike audiences for an advertiser.
 
 ```bash
 tiktok-ads-cli lookalike-audiences 7000000000000
@@ -174,7 +186,7 @@ Options:
 - `--page <n>` -- page number (default 1)
 - `--page-size <n>` -- page size (default 100)
 
-### List pixels
+### pixels
 
 List pixels for an advertiser.
 
@@ -186,7 +198,7 @@ Options:
 - `--page <n>` -- page number (default 1)
 - `--page-size <n>` -- page size (default 100)
 
-### Get a pixel
+### pixel
 
 Get a specific pixel by code.
 
@@ -194,7 +206,7 @@ Get a specific pixel by code.
 tiktok-ads-cli pixel 7000000000000 PIXEL_CODE_123
 ```
 
-### Create async report
+### async-report
 
 Create an async report task.
 
@@ -214,7 +226,7 @@ Options:
 - `--end-date <date>` -- end date, YYYY-MM-DD (required)
 - `--metrics <metrics>` -- metrics, comma-separated
 
-### Check async report status
+### report-status
 
 Check the status of an async report task.
 
@@ -222,7 +234,7 @@ Check the status of an async report task.
 tiktok-ads-cli report-status 7000000000000 task_abc123
 ```
 
-### Get audience report
+### audience-report
 
 Get audience analysis report.
 
@@ -240,19 +252,13 @@ Options:
 - `--dimensions <dims>` -- dimensions: gender, age, country_code, language, platform, etc.
 - `--campaign-ids <ids>` -- filter by campaign IDs (comma-separated)
 
-## Credentials
+## Error output
 
-Credentials are resolved in this order:
+Errors are written to stderr as JSON with an `error` field:
 
-1. `--credentials <path>` flag
-2. `TIKTOK_ADS_ACCESS_TOKEN` environment variable
-3. `~/.config/tiktok-ads-cli/credentials.json` (auto-detected)
-
-## Output
-
-All output is JSON to stdout. Errors are JSON to stderr with a non-zero exit code.
-
-Use `--format compact` for single-line JSON (useful for piping).
+```json
+{"error": "No credentials found. Provide one of: ..."}
+```
 
 ## API Reference
 
