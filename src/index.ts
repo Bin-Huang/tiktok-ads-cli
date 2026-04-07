@@ -17,7 +17,7 @@ const program = new Command();
 
 program
   .name("tiktok-ads-cli")
-  .description("TikTok Ads CLI for AI agents")
+  .description("TikTok Ads CLI & Skills for AI agents")
   .version(version)
   .option("--format <format>", "Output format", "json")
   .option("--credentials <path>", "Path to credentials JSON file")
